@@ -15,14 +15,11 @@ def custom_rmtree(top):
 
 IMPORT_REPOS = ['driada']
 
-os.makedirs('externals', exist_ok=True)
+extpath = os.path.join(os.getcwd(), 'externals')
+os.makedirs(extpath, exist_ok=True)
 
 for repo in IMPORT_REPOS:
-    extpath = os.path.join(os.getcwd(), 'externals')
     rppath = os.path.join(extpath, repo)
-
-    print(extpath)
-    print(rppath)
     if repo in os.listdir(extpath):
         custom_rmtree(rppath)
 
