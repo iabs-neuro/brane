@@ -1,6 +1,7 @@
 import git
 import os
 import stat
+import pathlib
 
 def custom_rmtree(top):
     for root, dirs, files in os.walk(top, topdown=False):
@@ -14,8 +15,8 @@ def custom_rmtree(top):
 
 
 IMPORT_REPOS = ['driada']
-print(os.getcwd())
-extpath = os.path.join(os.getcwd(), 'externals')
+
+extpath = os.path.join(pathlib.Path(__file__).parent.resolve(), 'externals')
 os.makedirs(extpath, exist_ok=True)
 
 for repo in IMPORT_REPOS:
