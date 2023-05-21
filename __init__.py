@@ -18,11 +18,14 @@ IMPORT_REPOS = ['driada']
 os.makedirs('externals', exist_ok=True)
 
 for repo in IMPORT_REPOS:
-    if repo in os.listdir('externals'):
-        custom_rmtree(f'externals/{repo}')
+    extpath = os.path.join(os.getcwd(), 'externals')
+    rppath = os.path.join(extpath, repo)
+
+    if repo in os.listdir(extpath):
+        custom_rmtree(rppath)
 
     rp = git.Repo.clone_from(f'https://github.com/iabs-neuro/{repo}',
-                                f'externals/{repo}',
+                                rppath,
                                 branch='main')
 
 from externals.driada import *
