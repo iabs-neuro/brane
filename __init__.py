@@ -21,11 +21,14 @@ for repo in IMPORT_REPOS:
     extpath = os.path.join(os.getcwd(), 'externals')
     rppath = os.path.join(extpath, repo)
 
+    print(extpath)
+    print(rppath)
     if repo in os.listdir(extpath):
         custom_rmtree(rppath)
 
     rp = git.Repo.clone_from(f'https://github.com/iabs-neuro/{repo}',
-                                rppath,
-                                branch='main')
+                             rppath,
+                             branch='main'
+    )
 
 from externals.driada import *
