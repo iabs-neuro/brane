@@ -29,4 +29,4 @@ for repo in IMPORT_REPOS:
                              branch='main'
     )
 
-from externals.driada import *
+from .externals.driada import *
