@@ -14,7 +14,7 @@ def custom_rmtree(top):
     os.rmdir(top)
 
 
-IMPORT_REPOS = ['driada']
+IMPORT_REPOS = []
 
 extpath = os.path.join(pathlib.Path(__file__).parent.resolve(), 'externals')
 os.makedirs(extpath, exist_ok=True)
